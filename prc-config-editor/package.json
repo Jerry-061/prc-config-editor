@@ -1,0 +1,41 @@
+{
+    "name": "prc-config-editor",
+    "displayName": "PRC流程配置编辑器",
+    "description": "为PRC流程配置文件提供智能补全、实时校验和语法高亮功能",
+    "version": "1.2.0",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Formatters",
+        "Linters"
+    ],
+    "activationEvents": [
+        "onLanguage:prc"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "languages": [{
+            "id": "prc",
+            "aliases": ["PRC", "prc"],
+            "extensions": [".prc"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "prc",
+            "scopeName": "source.prc",
+            "path": "./syntaxes/prc.tmLanguage.json"
+        }],
+        "configuration": {
+            "title": "PRC配置编辑器",
+            "properties": {
+                "prcEditor.autoInsertHeader": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "是否在新建PRC文件时自动插入文件头"
+                }
+            }
+        }
+    }
+}
