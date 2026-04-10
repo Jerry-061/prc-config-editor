@@ -94,8 +94,10 @@ class DiagnosticProvider {
             return;
         }
 
-        // 延时节点第四列的延时时间必须是正整数
-        this.verifyPositiveInteger(columns, text, 3, '延时时间', lineNumber, diagnostics);
+        if(operation === '延时节点') {
+             // 延时节点第四列的延时时间必须是正整数
+            this.verifyPositiveInteger(columns, text, 3, '延时时间', lineNumber, diagnostics);
+        }
     }
 
     // 单行校验方法
